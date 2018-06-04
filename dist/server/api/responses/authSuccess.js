@@ -15,4 +15,4 @@ function authSuccess(res, credentials, data) {
         res.sendStatus(HttpStatus.UNAUTHORIZED);
     }
 }
-exports.authSuccess = authSuccess;
+exports.default = authSuccess;

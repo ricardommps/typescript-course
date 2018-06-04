@@ -2,13 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\build",
-    "\\dist",
     "\\dist\\tests",
     "\\dist\\tests\\unit",
-    "\\server",
+    "\\server\\api",
+    "\\server\\api\\responses",
     "\\server\\modules",
-    "\\server\\modules\\User"
+    "\\server\\modules\\auth",
+    "\\tests",
+    "\\tests\\integration"
   ],
-  "SelectedNode": "\\server\\modules\\User\\controller.ts",
+  "SelectedNode": "\\tests\\integration\\integration.test.ts",
   "PreviewInSolutionExplorer": false
 }
