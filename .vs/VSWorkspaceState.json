@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\server\\config",
+    "\\server\\config\\env",
+    "\\server\\migrations",
+    "\\server\\models"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\gulpfile.js",
   "PreviewInSolutionExplorer": false
 }
