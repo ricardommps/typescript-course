@@ -38,15 +38,17 @@ class User implements IUser {
     update(id: number, user: any) {
         return model.User.update(user, {
             where: { id },
-            fields: ['name', 'email', 'password']
-        })
+            fields: ['name', 'email', 'password'],
+            hooks: true,
+            individualHooks: true
+        });
     }
 
     delete(id: number) {
         return model.User.destroy({
-            where: {id}
-        })
+            where: { id }
+        });
     }
 }
 
-export default User;
+export default new User();

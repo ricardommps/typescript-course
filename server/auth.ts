@@ -3,35 +3,35 @@ import { Strategy, ExtractJwt } from 'passport-jwt';
 import User from './modules/User/service';
 const config = require('./config/env/config')();
 
-export default function AuthConfig(){
-  const UserService = new User();
-  let opts = {
-    secretOrKey: config.secret,
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
-  };
+class Auth {
 
-  passport.use(new Strategy(opts,(jwtPayload, done) =>{
-    UserService.getById(jwtPayload.id)
-      .then(user => {
-        if(user){
-          return done(null,{
-            id: user.id,
-            email: user.email
-          })
-        }
-        return done(null,false)
-      })
-      .catch(error =>{
-        done(error,null)
-      });
-  }));
+  config() {
+    let opts = {
+      secretOrKey: config.secret,
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+    };
 
-  return{
-    initialize: () =>{
-      return passport.initialize();
-    },
-    authenticate: () =>{
-      return passport.authenticate('jwt', {session:false});
+    passport.use(new Strategy(opts,(jwtPayload, done) =>{
+      User.getById(jwtPayload.id)
+        .then(user => {
+          if(user){
+            return done(null,{
+              id: user.id,
+              email: user.email
+            })
+          }
+          return done(null,false)
+        })
+        .catch(error =>{
+          done(error,null)
+        });
+    }));
+
+    return{
+      initialize: () => passport.initialize(),
+      authenticate: () => passport.authenticate('jwt', {session:false})
     }
   }
 }
+
+export default new Auth();

@@ -76,11 +76,10 @@ describe('Testes de Integração', () => {
 
     describe('GET /api/users/all', () => {
         it('Deve retornar um Array com todos os Usuários', done => {
-            console.log(">>>> TOKEN all", token)
          request(app)
              .get('/api/users/all')
              .set('Content-Type', 'application/json')
-             .set('Authorization', `JWT ${token}`)
+             .set('Authorization', `Bearer ${token}`)
              .end((error, res) => {
                   expect(res.status).to.equal(HTTPStatus.OK);
                   expect(res.body.payload).to.be.an('array');
@@ -91,12 +90,11 @@ describe('Testes de Integração', () => {
      })
    });
    describe('GET /api/users/:id', () => {
-       it('Deve retornar um Array com apenas um Usuários', done => {
-           console.log(">>>> TOKEN users id", token)
+       it('Deve retornar um Array com apenas um Usuários', done => {         
          request(app)
              .get(`/api/users/${userDefault.id}`)
              .set('Content-Type', 'application/json')
-             .set('Authorization', `JWT ${token}`)
+             .set('Authorization', `Bearer ${token}`)
          .end((error, res) => {
              expect(res.status).to.equal(HTTPStatus.OK);
              expect(res.body.payload.id).to.be.equal(userDefault.id);
@@ -115,12 +113,11 @@ describe('Testes de Integração', () => {
              email: 'usuario@email.com',
              password: 'novouser'
   
-         }
-         console.log(">>>> TOKEN create", token)
+         }       
        request(app)
            .post('/api/users/create')
            .set('Content-Type', 'application/json')
-           .set('Authorization', `JWT ${token}`)
+           .set('Authorization', `Bearer ${token}`)
          .send(user)
          .end((error, res) => {
              expect(res.status).to.equal(HTTPStatus.OK);
@@ -137,11 +134,10 @@ describe('Testes de Integração', () => {
          name: 'TesteUpdate',
          email: 'update@email.com'
          }
-         console.log(">>>> TOKEN update", token)
          request(app)
              .put(`/api/users/${userTest.id}/update`)
              .set('Content-Type', 'application/json')
-             .set('Authorization', `JWT ${token}`)
+             .set('Authorization', `Bearer ${token}`)
              .send(user)
              .end((error, res) => {
                expect(res.status).to.equal(HTTPStatus.OK);
@@ -152,11 +148,10 @@ describe('Testes de Integração', () => {
    });
    describe('DELETE /api/users/:id/destroy', () => {
        it('Deve remover um Usuários', done => {
-           console.log(">>>> TOKEN destroy", token)
        request(app)
            .del(`/api/users/${userTest.id}/destroy`)
            .set('Content-Type', 'application/json')
-           .set('Authorization', `JWT ${token}`)
+           .set('Authorization', `Bearer ${token}`)
              .end((error, res) => {
                expect(res.status).to.equal(HTTPStatus.OK);
                expect(res.body.payload).to.eql(1)

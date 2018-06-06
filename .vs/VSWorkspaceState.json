@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\build",
-    "\\dist\\tests",
-    "\\dist\\tests\\unit",
-    "\\server\\api",
-    "\\server\\api\\responses",
-    "\\server\\modules",
-    "\\server\\modules\\auth",
-    "\\tests",
-    "\\tests\\integration"
+    ""
   ],
-  "SelectedNode": "\\tests\\integration\\integration.test.ts",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
