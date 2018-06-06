@@ -3,7 +3,7 @@ language: node_js
 notifications:
   email: ricardommps@gmail.com
 node_js:
-- 6.11.1
+- 9.11.1
 services:
 - postgresql
 env:
