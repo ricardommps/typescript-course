@@ -1,4 +1,11 @@
 {
+  "development": {
+    "username": "postgres",
+    "password": "68716982",
+    "database": "ts-api",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
   "test": {
     "username": "postgres",
     "password": "68716982",
